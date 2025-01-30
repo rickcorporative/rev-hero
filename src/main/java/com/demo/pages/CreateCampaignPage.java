@@ -1,4 +1,7 @@
 package com.demo.pages;
 
-public class CreateCampaignPage {
+import com.demo.core.base.PageTools;
+
+public class CreateCampaignPage extends PageTools {
+
 }

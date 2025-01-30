@@ -1,4 +1,28 @@
 package com.demo.pages;
 
-public class LoginPage {
+import com.demo.core.base.PageTools;
+import io.qameta.allure.Step;
+import org.openqa.selenium.By;
+
+public class LoginPage extends PageTools {
+    private By emailField = By.xpath("//input[@name='email']");
+    private By passwordField = By.xpath("//input[@password]");
+    private By loginButton = By.xpath("//span[text()='Login']");
+
+    @Step("Set email")
+    public void typeEmail(String value){
+        type(value,emailField);
+    }
+
+    @Step("Set password")
+    public void typePassword(String value){
+        type(value, passwordField);
+    }
+
+    @Step("Click login button")
+    public void clickLoginButton(){
+        click(loginButton);
+    }
+
+
 }
