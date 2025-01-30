@@ -8,6 +8,7 @@ public class Pages extends AllureLogger {
      */
     private static LoginPage loginPage;
     private static NavigationPage navigationPage;
+    private static CreateCampaignPage campaignPage;
 
     /**
      * This function return an instance of `NavigationPage`
@@ -26,5 +27,12 @@ public class Pages extends AllureLogger {
             navigationPage = new NavigationPage();
         }
         return navigationPage;
+    }
+
+    public static CreateCampaignPage campaignPage(){
+        if(campaignPage == null) {
+            campaignPage = new CreateCampaignPage();
+        }
+        return campaignPage;
     }
 }
