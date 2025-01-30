@@ -9,6 +9,12 @@ public class LoginPage extends PageTools {
     private By passwordField = By.xpath("//input[@password]");
     private By loginButton = By.xpath("//span[text()='Login']");
 
+    @Step("Check if logged out")
+    public boolean checkIfLoggedOut(){
+        waitForElementVisibility(loginButton);
+        return isElementVisible(loginButton);
+    }
+
     @Step("Set email")
     public void typeEmail(String value){
         type(value,emailField);

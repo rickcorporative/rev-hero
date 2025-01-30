@@ -25,5 +25,6 @@ public class LoginTest extends BaseTest {
         Pages.loginPage().clickLoginButton();
 
         Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), "Message in case of error");
+
     }
 }

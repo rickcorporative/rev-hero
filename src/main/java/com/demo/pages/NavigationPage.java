@@ -15,4 +15,11 @@ public class NavigationPage extends PageTools {
     }
 
 
+
+    @Step("click logout button")
+    public void clickLogOutButton(){
+        click(logoutButton);
+    }
+
+
 }
