@@ -7,4 +7,6 @@ public class Constants {
 
     public static String PASSWORD = "Test12345678!@";
 
+    public static String NEW_NAME = "Agent-1.0";
+
 }
