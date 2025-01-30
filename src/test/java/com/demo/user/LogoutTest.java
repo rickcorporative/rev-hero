@@ -1,4 +1,4 @@
-package com.demo;
+package com.demo.user;
 
 import com.demo.core.base.BaseTest;
 import com.demo.pages.Pages;
