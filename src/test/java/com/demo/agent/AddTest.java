@@ -1,4 +1,41 @@
 package com.demo.agent;
 
-public class AddTest {
+import com.demo.core.base.BaseTest;
+import com.demo.pages.Pages;
+import com.demo.utils.Constants;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+
+@Epic("Test Epic")
+@Feature("Login")
+@Owner("QA Yulia Drapushko")
+public class AddTest extends BaseTest {
+
+    @Test(description = "Login Test")
+    public void addTest(){
+        Pages.loginPage().typeEmail(Constants.EMAIL);
+
+        Pages.loginPage().typePassword(Constants.PASSWORD);
+
+        Pages.loginPage().clickLoginButton();
+
+        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), "Error! Something went wrong...");
+
+        Pages.agentsPage().open();
+
+        Pages.agentsPage().clickAddNewAgentButton();
+
+        Pages.agentsPage().typeFirstName(Constants.NEW_NAME);
+
+        Pages.agentsPage().typeLastName(Constants.NEW_NAME);
+
+        Pages.agentsPage().clickCreateButton();
+
+        Assert.assertTrue(Pages.navigationPage().checkIfSuccessful(), "Error! Something went wrong...");
+
+    }
 }
