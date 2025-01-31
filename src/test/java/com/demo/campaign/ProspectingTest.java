@@ -27,7 +27,7 @@ public class ProspectingTest extends BaseTest {
 
         Pages.campaignPage().createCampaign();
 
-        Pages.campaignPage().typeName("Campaign-1");
+        Pages.campaignPage().typeName(Constants.CAMPAIGN_NAME);
 
         Pages.campaignPage().selectTypeOption("Prospecting");
 

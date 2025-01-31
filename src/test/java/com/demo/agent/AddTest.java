@@ -11,11 +11,11 @@ import org.testng.annotations.Test;
 
 
 @Epic("Test Epic")
-@Feature("Login")
+@Feature("Add agent")
 @Owner("QA Yulia Drapushko")
 public class AddTest extends BaseTest {
 
-    @Test(description = "Login Test")
+    @Test(description = "Add agent Test")
     public void addTest(){
         Pages.loginPage().typeEmail(Constants.EMAIL);
 

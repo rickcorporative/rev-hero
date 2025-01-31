@@ -1,6 +1,7 @@
 package com.demo.pages;
 
 import com.demo.core.base.PageTools;
+import com.demo.utils.Constants;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
@@ -9,7 +10,7 @@ public class CreateCampaignPage extends PageTools {
     private By nameField = By.xpath("//input[@name='name']");
     private By select = By.xpath("//select[@name='type']");
     private By startButton = By.xpath("//span[text()='Start']");
-    private By createdCampaign = By.xpath("//span[text()='test_creation2']");
+    private By createdCampaign = By.xpath("//span[text()='" + Constants.CAMPAIGN_NAME + "']");
 
     @Step("Check if created")
     public boolean checkIfCreated(){

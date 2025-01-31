@@ -1,19 +1,20 @@
 package com.demo.pages;
 
 import com.demo.core.base.PageTools;
+import com.demo.utils.Constants;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 public class NavigationPage extends PageTools {
     private static By logoutButton = By.xpath("//a[@data-testid='logout']");
-    private By editCampaignButton = By.xpath("//div[div[span[text()='test_creation2']]]//div[contains(@class, '_campaignActionButtons_hwawn_73')]/div[2]");
-    private By editStageButton = By.xpath("//div[div[text()='Stage 2']]/div[contains(@class,'_actionButtons_1xlv5_18')]/*");
+    private By editCampaignButton = By.xpath("//div[div[span[text()='" + Constants.CAMPAIGN_NAME + "']]]//div[contains(@class, '_campaignActionButtons_hwawn_73')]/div[2]");
+    private By editStageButton = By.xpath("//div[div[text()='" + Constants.STAGE_NAME + "']]/div[contains(@class,'_actionButtons_1xlv5_18')]/*");
     private By stageNameField = By.xpath("//input[@type='text']");
     private By nextButton = By.xpath("//span[text()='Next']");
     private By saveButton = By.xpath("//span[text()='Save']");
     private By successNote = By.xpath("//div[text()='Saved Successfully']");
-    private By stageForDelete = By.xpath("//div[div[text()='Stage 2']]");
-    private By deleteButton = By.xpath("//div[div[text()='Stage 2']]/div[contains(@class,'_actionButtons_1xlv5_18')]/*[local-name()='svg'][2]");
+    private By stageForDelete = By.xpath("//div[div[text()='" + Constants.STAGE_NAME + "']]");
+    private By deleteButton = By.xpath("//div[div[text()='" + Constants.STAGE_NAME + "']]/div[contains(@class,'_actionButtons_1xlv5_18')]/*[local-name()='svg'][2]");
 
     @Step("Check if authorized")
     public boolean checkIfAuthorized(){

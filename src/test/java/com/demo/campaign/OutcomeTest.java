@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 public class OutcomeTest extends BaseTest {
 
     @Test(description = "Create campaign test")
-    public void prospectTest() {
+    public void outcomeTest() {
 
         Pages.loginPage().typeEmail(Constants.EMAIL);
 
@@ -27,7 +27,7 @@ public class OutcomeTest extends BaseTest {
 
         Pages.campaignPage().createCampaign();
 
-        Pages.campaignPage().typeName("Campaign-1");
+        Pages.campaignPage().typeName(Constants.CAMPAIGN_NAME);
 
         Pages.campaignPage().selectTypeOption("Outcome");
 

@@ -12,11 +12,11 @@ import org.testng.annotations.Test;
 
 
 @Epic("Test Epic")
-@Feature("Update")
+@Feature("Delete")
 @Owner("QA Yulia Drapushko")
 public class DeleteTest extends BaseTest {
 
-    @Test(description = "Update Test")
+    @Test(description = "Delete Test")
     public void deleteTest(){
         Pages.loginPage().typeEmail(Constants.EMAIL);
 
