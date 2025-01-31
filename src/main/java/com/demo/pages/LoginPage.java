@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 
 public class LoginPage extends PageTools {
     private By emailField = By.xpath("//input[@name='email']");
-    private By passwordField = By.xpath("//input[@password]");
+    private By passwordField = By.xpath("//input[@name='password']");
     private By loginButton = By.xpath("//span[text()='Login']");
 
     @Step("Check if logged out")

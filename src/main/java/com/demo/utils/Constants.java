@@ -1,7 +1,7 @@
 package com.demo.utils;
 
 public class Constants {
-    public static String URL = "https://www.google.com/";
+    public static String URL = "https://app.revhero.io/";
 
     public static String EMAIL = "yul.drapushko@gmail.com";
 
