@@ -23,7 +23,7 @@ public class UpdateTest extends BaseTest {
 
         Pages.loginPage().clickLoginButton();
 
-        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), "Error! Something went wrong...");
+        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
 
         Pages.agentsPage().open();
 
@@ -35,6 +35,6 @@ public class UpdateTest extends BaseTest {
 
         Pages.agentsPage().clickUpdateButton();
 
-        Assert.assertTrue(Pages.agentsPage().checkIfUpdated(), "Error! Something went wrong...");
+        Assert.assertTrue(Pages.agentsPage().checkIfUpdated(), Constants.ERROR_MESSAGE);
     }
 }

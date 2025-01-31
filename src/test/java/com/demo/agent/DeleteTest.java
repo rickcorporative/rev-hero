@@ -24,7 +24,7 @@ public class DeleteTest extends BaseTest {
 
         Pages.loginPage().clickLoginButton();
 
-        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), "Error! Something went wrong...");
+        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
 
         Pages.agentsPage().open();
 
@@ -32,6 +32,6 @@ public class DeleteTest extends BaseTest {
 
         Pages.agentsPage().clickDeleteOption();
 
-        Assert.assertTrue(Pages.agentsPage().checkIfDeleted(), "Error! Something went wrong...");
+        Assert.assertTrue(Pages.agentsPage().checkIfDeleted(), Constants.ERROR_MESSAGE);
     }
 }

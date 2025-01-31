@@ -23,7 +23,7 @@ public class SwarmTest extends BaseTest {
 
         Pages.loginPage().clickLoginButton();
 
-        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), "Error! Something went wrong. You were not authorized...");
+        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
 
         Pages.campaignPage().createCampaign();
 
@@ -33,7 +33,7 @@ public class SwarmTest extends BaseTest {
 
         Pages.campaignPage().clickStartButton();
 
-        Assert.assertTrue(Pages.campaignPage().checkIfCreated(), "Error! Something went wrong. Campaign wasn`t created...");
+        Assert.assertTrue(Pages.campaignPage().checkIfCreated(), Constants.ERROR_MESSAGE);
 
     }
 }

@@ -23,9 +23,9 @@ public class EditTest extends BaseTest {
 
         Pages.loginPage().clickLoginButton();
 
-        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), "Error! Something went wrong...");
+        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
 
-        Pages.navigationPage().clickEditCampaignButton();
+        Pages.navigationPage().clickEditCampaignButton(Constants.CAMPAIGN_NAME);
 
         Pages.navigationPage().clickEditStageButton();
 
@@ -37,7 +37,7 @@ public class EditTest extends BaseTest {
 
         Pages.navigationPage().clickSaveButton();
 
-        Assert.assertTrue(Pages.navigationPage().checkIfSuccessful(), "Error! Something went wrong...");
+        Assert.assertTrue(Pages.navigationPage().checkIfSuccessful(), Constants.ERROR_MESSAGE);
 
     }
 }

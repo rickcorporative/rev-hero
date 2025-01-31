@@ -15,4 +15,6 @@ public class Constants {
 
     public static String STAGE_NAME = "Stage 2";
 
+    public static String ERROR_MESSAGE = "Error! Something went wrong...";
+
 }

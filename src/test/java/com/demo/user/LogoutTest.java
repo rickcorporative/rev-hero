@@ -24,10 +24,10 @@ public class LogoutTest extends BaseTest {
 
         Pages.loginPage().clickLoginButton();
 
-        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), "Error! You were not authorized...");
+        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
 
         Pages.navigationPage().clickLogOutButton();
 
-        Assert.assertTrue(Pages.loginPage().checkIfLoggedOut(), "Error! You are still in your account...");
+        Assert.assertTrue(Pages.loginPage().checkIfLoggedOut(), Constants.ERROR_MESSAGE);
     }
 }

@@ -9,7 +9,7 @@ import static com.demo.utils.SelenideTools.sleep;
 
 public class NavigationPage extends PageTools {
     private static By logoutButton = By.xpath("//a[@data-testid='logout']");
-    private By editCampaignButton = By.xpath("//div[div[span[text()='" + Constants.CAMPAIGN_NAME + "']]]//div[contains(@class, '_campaignActionButtons_hwawn_73')]/div[2]");
+    private By editCampaignButton;
     private By editStageButton = By.xpath("//div[div[text()='" + Constants.STAGE_NAME + "']]/div[contains(@class,'_actionButtons_1xlv5_18')]/*");
     private By stageNameField = By.xpath("//input[@type='text']");
     private By delayField = stageNameField;
@@ -58,7 +58,8 @@ public class NavigationPage extends PageTools {
     }
 
     @Step("click edit button")
-    public void clickEditCampaignButton(){
+    public void clickEditCampaignButton(String campaign){
+        editCampaignButton = By.xpath("//div[div[span[text()='" + campaign + "']]]//div[contains(@class, '_campaignActionButtons_hwawn_73')]/div[2]");
         click(editCampaignButton);
     }
 
