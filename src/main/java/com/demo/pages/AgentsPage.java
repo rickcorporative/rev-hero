@@ -2,11 +2,11 @@ package com.demo.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.demo.core.base.PageTools;
-import com.demo.utils.Constants;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 public class AgentsPage extends PageTools {
+    private String agent = "//tr[td[text()='%s'] and td[text()='%s']]";
     private By addNewAgentButton = By.xpath("//button[@title='Add New Agent']");
     private By firstNameField = By.xpath("//input[@name='first_name']");
     private By lastNameField = By.xpath("//input[@name='last_name']");
@@ -14,7 +14,7 @@ public class AgentsPage extends PageTools {
     private By successfulCreatedNote = By.xpath("//div[text()='Virtual Agent created successfully']");
     private By successfulUpdatedNote = By.xpath("//div[text()='Virtual Agent updated successfully']");
     private By successfulDeletedNote = By.xpath("//div[text()='Agent deleted successfully']");
-    private By settingsButton = By.xpath("//tr[td[text()='" + Constants.NAME + "'] and td[text()='" + Constants.NAME + "']]//button[contains(@class, 'ant-btn css-dev-only-do-not-override-7ny38l ant-btn-link ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-link ant-btn-sm ant-btn-icon-only')]");
+    private By settingsButton = By.xpath(agent + "//button[contains(@class, 'css')]");
     private By updateOption = By.xpath("//li[text()='Update']");
     private By deleteOption = By.xpath("//li[text()='Delete']");
     private By updateButton = By. xpath("//span[text()='Update']");
@@ -39,10 +39,6 @@ public class AgentsPage extends PageTools {
         return isElementVisible(successfulUpdatedNote);
     }
 
-    @Step("Open agents page")
-    public void open(){
-        Selenide.open("https://app.revhero.io/virtual-agents");
-    }
 
     @Step("Click on add new agent button")
     public void clickAddNewAgentButton(){
@@ -65,7 +61,8 @@ public class AgentsPage extends PageTools {
     }
 
     @Step("Click settings button")
-    public void clickSettingsButton(){
+    public void clickSettingsButton(String firstName, String lastName){
+        agent = formAgentXpath(agent, firstName, lastName);
         click(settingsButton);
     }
 

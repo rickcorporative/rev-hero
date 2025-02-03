@@ -3,6 +3,8 @@ package com.demo.utils;
 public class Constants {
     public static String URL = "https://app.revhero.io/";
 
+    public static String AGENTS_URL = "https://app.revhero.io/virtual-agents";
+
     public static String EMAIL = "yul.drapushko@gmail.com";
 
     public static String PASSWORD = "Test12345678!@";

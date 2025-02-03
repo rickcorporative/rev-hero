@@ -6,11 +6,12 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 public class CreateCampaignPage extends PageTools {
+    private String campaign = "//span[text()='%s']";
     private By createCampaignButton = By.xpath("//span[text()='Create campaign']");
     private By nameField = By.xpath("//input[@name='name']");
     private By select = By.xpath("//select[@name='type']");
     private By startButton = By.xpath("//span[text()='Start']");
-    private By createdCampaign = By.xpath("//span[text()='" + Constants.CAMPAIGN_NAME + "']");
+    private By createdCampaign = By.xpath(campaign);
 
     @Step("Check if created")
     public boolean checkIfCreated(){
@@ -25,6 +26,7 @@ public class CreateCampaignPage extends PageTools {
 
     @Step("Type name")
     public void typeName(String value){
+        campaign = formStageXpath(campaign, value);
         type(value, nameField);
     }
 

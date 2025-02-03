@@ -29,4 +29,8 @@ public class MainActions {
         return WebDriverRunner.getWebDriver().getCurrentUrl();
     }
 
+    public void openVirtualAgentsPage(){
+        Selenide.open("https://app.revhero.io/virtual-agents");
+    }
+
 }

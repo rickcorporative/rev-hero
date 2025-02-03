@@ -1,5 +1,6 @@
 package com.demo.agent;
 
+import com.demo.actions.Actions;
 import com.demo.core.base.BaseTest;
 import com.demo.pages.Pages;
 import com.demo.utils.Constants;
@@ -25,7 +26,7 @@ public class AddTest extends BaseTest {
 
         Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
 
-        Pages.agentsPage().open();
+        Actions.mainActions().openVirtualAgentsPage();
 
         Pages.agentsPage().clickAddNewAgentButton();
 

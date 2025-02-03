@@ -27,7 +27,7 @@ public class DeleteTest extends BaseTest {
 
         Pages.navigationPage().clickEditCampaignButton(Constants.CAMPAIGN_NAME);
 
-        Pages.navigationPage().clickDeleteButton();
+        Pages.navigationPage().clickDeleteButton(Constants.STAGE_NAME);
 
         Assert.assertTrue(!Pages.navigationPage().checkIfDeleted(), Constants.ERROR_MESSAGE);
 

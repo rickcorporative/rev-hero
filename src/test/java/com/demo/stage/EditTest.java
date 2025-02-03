@@ -27,7 +27,7 @@ public class EditTest extends BaseTest {
 
         Pages.navigationPage().clickEditCampaignButton(Constants.CAMPAIGN_NAME);
 
-        Pages.navigationPage().clickEditStageButton();
+        Pages.navigationPage().clickEditStageButton(Constants.STAGE_NAME);
 
         Pages.navigationPage().typeNewStageName(Constants.NEW_NAME);
 

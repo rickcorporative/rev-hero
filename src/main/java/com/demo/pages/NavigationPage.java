@@ -1,16 +1,18 @@
 package com.demo.pages;
 
 import com.demo.core.base.PageTools;
-import com.demo.utils.Constants;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.demo.utils.SelenideTools.sleep;
 
 public class NavigationPage extends PageTools {
+    private String campaign = "//div[div[span[text()='%s']]]";
+    private String stage = "//div[div[text()='%s']]";
     private static By logoutButton = By.xpath("//a[@data-testid='logout']");
-    private By editCampaignButton;
-    private By editStageButton = By.xpath("//div[div[text()='" + Constants.STAGE_NAME + "']]/div[contains(@class,'_actionButtons_1xlv5_18')]/*");
+    private By editCampaignButton = By.xpath("//div[div[span[text()='test_creation2']]]//div[contains(@class, 'campaignActionButtons')]/div[2]");
+    private By stageForDelete = By.xpath(stage);
+    private By editStageButton = By.xpath(stage + "/div[contains(@class,'actionButtons')]/*");
     private By stageNameField = By.xpath("//input[@type='text']");
     private By delayField = stageNameField;
     private By maxDealsToMoveField = By.xpath("//div[label[span[text()='Max deals to move']]]//input");
@@ -18,15 +20,14 @@ public class NavigationPage extends PageTools {
     private By saveButton = By.xpath("//span[text()='Save']");
     private By successNote = By.xpath("//div[text()='Saved Successfully']");
     private By errorNote = By.xpath("//div[text()='Error saving stage. Please try again.']");
-    private By stageForDelete = By.xpath("//div[div[text()='" + Constants.STAGE_NAME + "']]");
-    private By deleteButton = By.xpath("//div[div[text()='" + Constants.STAGE_NAME + "']]/div[contains(@class,'_actionButtons_1xlv5_18')]/*[local-name()='svg'][2]");
+    private By deleteButton = By.xpath(stage + "/div[contains(@class,'actionButtons')]/*[local-name()='svg'][2]");
     private By addStageButton = By.xpath("//span[text()='Add Stage']");
-    private By emailCheckbox = By.xpath("//span[contains(@class, 'css-ahj2mt-MuiTypography-root') and text()='Email']");
-    private By voicemailCheckbox = By.xpath("//span[contains(@class, 'css-ahj2mt-MuiTypography-root') and text()='Voicemail']");
-    private By sendToOtherCampaignCheckbox = By.xpath("//span[contains(@class, 'css-ahj2mt-MuiTypography-root') and text()='Send to other campaign']");
-    private By sendPandadocSignatureCheckbox = By.xpath("//span[contains(@class, 'css-ahj2mt-MuiTypography-root') and text()='Send Pandadoc E-Signature']");
-    private By sendLinkedInConnectionMessageCheckbox = By.xpath("//span[contains(@class, 'css-ahj2mt-MuiTypography-root') and text()='LinkedIn connection message']");
-    private By sendLinkedInRegularMessageCheckbox = By.xpath("//span[contains(@class, 'css-ahj2mt-MuiTypography-root') and text()='LinkedIn regular message']");
+    private By emailCheckbox = By.xpath("//span[contains(@class, 'css') and text()='Email']");
+    private By voicemailCheckbox = By.xpath("//span[contains(@class, 'css') and text()='Voicemail']");
+    private By sendToOtherCampaignCheckbox = By.xpath("//span[contains(@class, 'css') and text()='Send to other campaign']");
+    private By sendPandadocSignatureCheckbox = By.xpath("//span[contains(@class, 'css') and text()='Send Pandadoc E-Signature']");
+    private By sendLinkedInConnectionMessageCheckbox = By.xpath("//span[contains(@class, 'css') and text()='LinkedIn connection message']");
+    private By sendLinkedInRegularMessageCheckbox = By.xpath("//span[contains(@class, 'css') and text()='LinkedIn regular message']");
 
 
     @Step("Check if authorized")
@@ -58,13 +59,14 @@ public class NavigationPage extends PageTools {
     }
 
     @Step("click edit button")
-    public void clickEditCampaignButton(String campaign){
-        editCampaignButton = By.xpath("//div[div[span[text()='" + campaign + "']]]//div[contains(@class, '_campaignActionButtons_hwawn_73')]/div[2]");
+    public void clickEditCampaignButton(String campaignName){
+        campaign = formStageXpath(campaign, campaignName);
         click(editCampaignButton);
     }
 
     @Step("click edit stage button")
-    public void clickEditStageButton(){
+    public void clickEditStageButton(String stageName){
+        stage = formStageXpath(stage, stageName);
         click(editStageButton);
     }
 
@@ -84,7 +86,8 @@ public class NavigationPage extends PageTools {
     }
 
     @Step("Click delete button")
-    public void clickDeleteButton(){
+    public void clickDeleteButton(String stageName){
+        stage = formStageXpath(stage, stageName);
         click(deleteButton);
     }
 

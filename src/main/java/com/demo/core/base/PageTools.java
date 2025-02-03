@@ -80,6 +80,14 @@ public class PageTools extends AllureLogger {
         shouldBe(Condition.visible, by, args).click();
     }
 
+    protected String formAgentXpath(String xpath, String var1, String var2){
+        return String.format(xpath, var1, var2);
+    }
+
+    protected String formStageXpath(String xpath, String var1){
+        return String.format(xpath, var1);
+    }
+
     protected void clickIfExist(By by, Object... args) {
         logInfo(getPreviousMethodNameAsText() + ", element --> " + byLocator(by, args));
         shouldBe(Condition.exist, by, args).click();
