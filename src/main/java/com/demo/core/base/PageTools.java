@@ -80,6 +80,12 @@ public class PageTools extends AllureLogger {
         shouldBe(Condition.visible, by, args).click();
     }
 
+    protected void clickDynamicLocator(By by, String campaignName, String template){
+        template = formStageXpath(template, campaignName);
+        by = By.xpath(template);
+        click(by);
+    }
+
     protected String formAgentXpath(String xpath, String var1, String var2){
         return String.format(xpath, var1, var2);
     }

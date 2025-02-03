@@ -2,6 +2,7 @@ package com.demo.stage;
 
 
 //TODO: blocked by issue
+import com.demo.actions.Actions;
 import com.demo.core.base.BaseTest;
 import com.demo.pages.Pages;
 import com.demo.utils.Constants;
@@ -19,13 +20,7 @@ public class SetMaxDealsLimitTest extends BaseTest {
 
     @Test(description = "Set max deals limit test")
     public void setMaxDealsLimitTest() {
-        Pages.loginPage().typeEmail(Constants.EMAIL);
-
-        Pages.loginPage().typePassword(Constants.PASSWORD);
-
-        Pages.loginPage().clickLoginButton();
-
-        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
+        Actions.loginActions().authorize(Constants.EMAIL, Constants.PASSWORD);
 
         Pages.navigationPage().clickEditCampaignButton(Constants.CAMPAIGN_NAME);
 
@@ -41,13 +36,13 @@ public class SetMaxDealsLimitTest extends BaseTest {
 
         Pages.navigationPage().clickSaveButton();
 
-        Assert.assertTrue(!Pages.navigationPage().checkIfEmailStageCreated(), Constants.ERROR_MESSAGE);
+        Assert.assertTrue(!Pages.navigationPage().checkIfEmailStageCreated(), "Error! The stage was not added properly...");
 
         Pages.navigationPage().setMaxDealsLimit("30");
 
         Pages.navigationPage().clickSaveButton();
 
-        Assert.assertTrue(Pages.navigationPage().checkIfSuccessful(), Constants.ERROR_MESSAGE);
+        Assert.assertTrue(Pages.navigationPage().checkIfSuccessful(), "Error! Max deals limit was not set properly...");
 
     }
 }

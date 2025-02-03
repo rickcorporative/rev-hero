@@ -19,13 +19,7 @@ public class DeleteTest extends BaseTest {
 
     @Test(description = "Delete Test")
     public void deleteTest(){
-        Pages.loginPage().typeEmail(Constants.EMAIL);
-
-        Pages.loginPage().typePassword(Constants.PASSWORD);
-
-        Pages.loginPage().clickLoginButton();
-
-        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
+        Actions.loginActions().authorize(Constants.EMAIL, Constants.PASSWORD);
 
         Actions.mainActions().openVirtualAgentsPage();
 
@@ -33,6 +27,6 @@ public class DeleteTest extends BaseTest {
 
         Pages.agentsPage().clickDeleteOption();
 
-        Assert.assertTrue(Pages.agentsPage().checkIfDeleted(), Constants.ERROR_MESSAGE);
+        Assert.assertTrue(Pages.agentsPage().checkIfDeleted(), "Error! The agent was not deleted...");
     }
 }

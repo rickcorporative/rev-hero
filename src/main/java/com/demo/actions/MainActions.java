@@ -33,4 +33,8 @@ public class MainActions {
         Selenide.open("https://app.revhero.io/virtual-agents");
     }
 
+    public String getUniqueName(){
+        return "Agent_" + System.currentTimeMillis();
+    }
+
 }

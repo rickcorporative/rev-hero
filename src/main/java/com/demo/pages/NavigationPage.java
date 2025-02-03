@@ -3,14 +3,14 @@ package com.demo.pages;
 import com.demo.core.base.PageTools;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-
 import static com.demo.utils.SelenideTools.sleep;
 
 public class NavigationPage extends PageTools {
-    private String campaign = "//div[div[span[text()='%s']]]";
+    private String editCampaignButtonString = "//div[div[span[text()='%s']]]//div[contains(@class, 'campaignActionButtons')]/div[2]";
     private String stage = "//div[div[text()='%s']]";
+    private String editStageButtonString = "//div[div[text()='%s']]/div[contains(@class,'actionButtons')]/*";
     private static By logoutButton = By.xpath("//a[@data-testid='logout']");
-    private By editCampaignButton = By.xpath("//div[div[span[text()='test_creation2']]]//div[contains(@class, 'campaignActionButtons')]/div[2]");
+    private By editCampaignButton;
     private By stageForDelete = By.xpath(stage);
     private By editStageButton = By.xpath(stage + "/div[contains(@class,'actionButtons')]/*");
     private By stageNameField = By.xpath("//input[@type='text']");
@@ -60,14 +60,12 @@ public class NavigationPage extends PageTools {
 
     @Step("click edit button")
     public void clickEditCampaignButton(String campaignName){
-        campaign = formStageXpath(campaign, campaignName);
-        click(editCampaignButton);
+        clickDynamicLocator(editCampaignButton ,campaignName, editCampaignButtonString);
     }
 
     @Step("click edit stage button")
     public void clickEditStageButton(String stageName){
-        stage = formStageXpath(stage, stageName);
-        click(editStageButton);
+        clickDynamicLocator(editStageButton, stageName, editStageButtonString);
     }
 
     @Step("Type new stage name")

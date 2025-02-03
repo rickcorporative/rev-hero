@@ -1,5 +1,6 @@
 package com.demo.stage;
 
+import com.demo.actions.Actions;
 import com.demo.core.base.BaseTest;
 import com.demo.pages.Pages;
 import com.demo.utils.Constants;
@@ -17,19 +18,13 @@ public class EditTest extends BaseTest {
 
     @Test(description = "Edit stage test")
     public void editTest(){
-        Pages.loginPage().typeEmail(Constants.EMAIL);
-
-        Pages.loginPage().typePassword(Constants.PASSWORD);
-
-        Pages.loginPage().clickLoginButton();
-
-        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
+        Actions.loginActions().authorize(Constants.EMAIL, Constants.PASSWORD);
 
         Pages.navigationPage().clickEditCampaignButton(Constants.CAMPAIGN_NAME);
 
-        Pages.navigationPage().clickEditStageButton(Constants.STAGE_NAME);
+        Pages.navigationPage().clickEditStageButton(Constants.NEW_NAME);
 
-        Pages.navigationPage().typeNewStageName(Constants.NEW_NAME);
+        Pages.navigationPage().typeNewStageName(Constants.STAGE_NAME);
 
         Pages.navigationPage().clickNextButton();
 
@@ -37,7 +32,7 @@ public class EditTest extends BaseTest {
 
         Pages.navigationPage().clickSaveButton();
 
-        Assert.assertTrue(Pages.navigationPage().checkIfSuccessful(), Constants.ERROR_MESSAGE);
+        Assert.assertTrue(Pages.navigationPage().checkIfSuccessful(), "Error! The stage was not edited...");
 
     }
 }

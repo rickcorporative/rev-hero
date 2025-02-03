@@ -1,5 +1,6 @@
 package com.demo.stage;
 
+import com.demo.actions.Actions;
 import com.demo.core.base.BaseTest;
 import com.demo.pages.Pages;
 import com.demo.utils.Constants;
@@ -17,19 +18,13 @@ public class DeleteTest extends BaseTest {
 
     @Test(description = "Delete stage test")
     public void deleteTest(){
-        Pages.loginPage().typeEmail(Constants.EMAIL);
-
-        Pages.loginPage().typePassword(Constants.PASSWORD);
-
-        Pages.loginPage().clickLoginButton();
-
-        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
+        Actions.loginActions().authorize(Constants.EMAIL, Constants.PASSWORD);
 
         Pages.navigationPage().clickEditCampaignButton(Constants.CAMPAIGN_NAME);
 
         Pages.navigationPage().clickDeleteButton(Constants.STAGE_NAME);
 
-        Assert.assertTrue(!Pages.navigationPage().checkIfDeleted(), Constants.ERROR_MESSAGE);
+        Assert.assertTrue(!Pages.navigationPage().checkIfDeleted(), "Error! The stage was not deleted...");
 
 
     }

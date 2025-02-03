@@ -5,6 +5,7 @@ public class Actions {
      * Page actions
      */
     private static MainActions mainActions;
+    private static LoginActions loginActions;
 
     /**
      * This function returns an instance of `LoginActions`
@@ -19,5 +20,12 @@ public class Actions {
             mainActions = new MainActions();
         }
         return mainActions;
+    }
+
+    public static LoginActions loginActions() {
+        if (loginActions == null) {
+            loginActions = new LoginActions();
+        }
+        return loginActions;
     }
 }

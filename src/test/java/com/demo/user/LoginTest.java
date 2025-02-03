@@ -24,7 +24,7 @@ public class LoginTest extends BaseTest {
 
         Pages.loginPage().clickLoginButton();
 
-        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
+        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), "Error! Unfortunately, you were not authorized...");
 
     }
 }

@@ -1,5 +1,6 @@
 package com.demo.campaign;
 
+import com.demo.actions.Actions;
 import com.demo.core.base.BaseTest;
 import com.demo.pages.Pages;
 import com.demo.utils.Constants;
@@ -17,13 +18,7 @@ public class OutcomeTest extends BaseTest {
     @Test(description = "Create campaign test")
     public void outcomeTest() {
 
-        Pages.loginPage().typeEmail(Constants.EMAIL);
-
-        Pages.loginPage().typePassword(Constants.PASSWORD);
-
-        Pages.loginPage().clickLoginButton();
-
-        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
+        Actions.loginActions().authorize(Constants.EMAIL, Constants.PASSWORD);
 
         Pages.campaignPage().createCampaign();
 
@@ -33,7 +28,7 @@ public class OutcomeTest extends BaseTest {
 
         Pages.campaignPage().clickStartButton();
 
-        Assert.assertTrue(Pages.campaignPage().checkIfCreated(), Constants.ERROR_MESSAGE);
+        Assert.assertTrue(Pages.campaignPage().checkIfCreated(), "Error! Outcome campaign was not added...");
 
     }
 }

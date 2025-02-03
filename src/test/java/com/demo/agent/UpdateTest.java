@@ -20,13 +20,7 @@ public class UpdateTest extends BaseTest {
 
     @Test(description = "Update Test")
     public void updateTest(){
-        Pages.loginPage().typeEmail(Constants.EMAIL);
-
-        Pages.loginPage().typePassword(Constants.PASSWORD);
-
-        Pages.loginPage().clickLoginButton();
-
-        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
+        Actions.loginActions().authorize(Constants.EMAIL, Constants.PASSWORD);
 
         Actions.mainActions().openVirtualAgentsPage();
 
@@ -38,6 +32,6 @@ public class UpdateTest extends BaseTest {
 
         Pages.agentsPage().clickUpdateButton();
 
-        Assert.assertTrue(Pages.agentsPage().checkIfUpdated(), Constants.ERROR_MESSAGE);
+        Assert.assertTrue(Pages.agentsPage().checkIfUpdated(), "Error! The agent was not updated...");
     }
 }

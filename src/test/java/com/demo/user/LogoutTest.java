@@ -1,5 +1,6 @@
 package com.demo.user;
 
+import com.demo.actions.Actions;
 import com.demo.core.base.BaseTest;
 import com.demo.pages.Pages;
 import com.demo.utils.Constants;
@@ -24,10 +25,10 @@ public class LogoutTest extends BaseTest {
 
         Pages.loginPage().clickLoginButton();
 
-        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
+        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), "Error! Unfortunately, you were not authorized...");
 
         Pages.navigationPage().clickLogOutButton();
 
-        Assert.assertTrue(Pages.loginPage().checkIfLoggedOut(), Constants.ERROR_MESSAGE);
+        Assert.assertTrue(Pages.loginPage().checkIfLoggedOut(), "Error! Unfortunately, you stayed authorized...");
     }
 }

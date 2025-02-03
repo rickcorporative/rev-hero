@@ -18,25 +18,19 @@ public class AddTest extends BaseTest {
 
     @Test(description = "Add agent Test")
     public void addTest(){
-        Pages.loginPage().typeEmail(Constants.EMAIL);
-
-        Pages.loginPage().typePassword(Constants.PASSWORD);
-
-        Pages.loginPage().clickLoginButton();
-
-        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), Constants.ERROR_MESSAGE);
+        Actions.loginActions().authorize(Constants.EMAIL, Constants.PASSWORD);
 
         Actions.mainActions().openVirtualAgentsPage();
 
         Pages.agentsPage().clickAddNewAgentButton();
 
-        Pages.agentsPage().typeFirstName(Constants.NEW_NAME);
+        Pages.agentsPage().typeFirstName(Actions.mainActions().getUniqueName());
 
-        Pages.agentsPage().typeLastName(Constants.NEW_NAME);
+        Pages.agentsPage().typeLastName(Actions.mainActions().getUniqueName());
 
         Pages.agentsPage().clickCreateButton();
 
-        Assert.assertTrue(Pages.navigationPage().checkIfSuccessful(), Constants.ERROR_MESSAGE);
+        Assert.assertTrue(Pages.navigationPage().checkIfSuccessful(), "Error! The agent was not added properly...");
 
     }
 }
