@@ -2,10 +2,94 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="true" thread-count="1">
 
-    <test name="FirstTest">
+    <test name="LoginTest">
         <classes>
-            <class name="com.demo.FirstTest"/>
+            <class name="com.demo.user.LoginTest"/>
         </classes>
     </test>
-
+    <test name="LogoutTest">
+        <classes>
+            <class name="com.demo.user.LogoutTest"/>
+        </classes>
+    </test>
+    <test name="AddEmailTest">
+        <classes>
+            <class name="com.demo.stage.AddEmailTest"/>
+        </classes>
+    </test>
+    <test name="AddLinkedInConnectionMessageTest">
+        <classes>
+            <class name="com.demo.stage.AddLinkedInConnectionMessageTest"/>
+        </classes>
+    </test>
+    <test name="AddLinkedInRegularMessageTest">
+        <classes>
+            <class name="com.demo.stage.AddLinkedInRegularMessageTest"/>
+        </classes>
+    </test>
+    <test name="AddSendPandadocSignatureTest">
+        <classes>
+            <class name="com.demo.stage.AddSendPandadocSignatureTest"/>
+        </classes>
+    </test>
+    <test name="AddSendToOtherCampaignTest">
+        <classes>
+            <class name="com.demo.stage.AddSendToOtherCampaignTest"/>
+        </classes>
+    </test>
+    <test name="AddVoicemailTest">
+        <classes>
+            <class name="com.demo.stage.AddVoicemailTest"/>
+        </classes>
+    </test>
+    <test name="DeleteTest">
+        <classes>
+            <class name="com.demo.stage.DeleteTest"/>
+        </classes>
+    </test>
+    <test name="EditTest">
+        <classes>
+            <class name="com.demo.stage.EditTest"/>
+        </classes>
+    </test>
+    <test name="SetMaxDealsLimitTest">
+        <classes>
+            <class name="com.demo.stage.SetMaxDealsLimitTest"/>
+        </classes>
+    </test>
+    <test name="SetZeroDelayTest">
+        <classes>
+            <class name="com.demo.stage.SetZeroDelayTest"/>
+        </classes>
+    </test>
+    <test name="OutcomeTest">
+        <classes>
+            <class name="com.demo.campaign.OutcomeTest"/>
+        </classes>
+    </test>
+    <test name="ProspectingTest">
+        <classes>
+            <class name="com.demo.campaign.ProspectingTest"/>
+        </classes>
+    </test>
+    <test name="SwarmTest">
+        <classes>
+            <class name="com.demo.campaign.SwarmTest"/>
+        </classes>
+    </test>
+    <test name="AddTest">
+        <classes>
+            <class name="com.demo.agent.AddTest"/>
+        </classes>
+    </test>
+    <test name="DeleteTest">
+        <classes>
+            <class name="com.demo.agent.DeleteTest"/>
+        </classes>
+    </test>
+    <test name="UpdateTest">
+        <classes>
+            <class name="com.demo.agent.UpdateTest"/>
+        </classes>
+    </test>
 </suite>

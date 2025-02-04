@@ -6,13 +6,10 @@ import org.openqa.selenium.By;
 import static com.demo.utils.SelenideTools.sleep;
 
 public class NavigationPage extends PageTools {
-    private String editCampaignButtonString = "//div[div[span[text()='%s']]]//div[contains(@class, 'campaignActionButtons')]/div[2]";
-    private String stage = "//div[div[text()='%s']]";
-    private String editStageButtonString = "//div[div[text()='%s']]/div[contains(@class,'actionButtons')]/*";
     private static By logoutButton = By.xpath("//a[@data-testid='logout']");
-    private By editCampaignButton;
-    private By stageForDelete = By.xpath(stage);
-    private By editStageButton = By.xpath(stage + "/div[contains(@class,'actionButtons')]/*");
+    private By editCampaignButton = By.xpath("//div[div[span[text()='%s']]]//div[contains(@class, 'campaignActionButtons')]/div[2]") ;
+    private By stageForDelete = By.xpath("//div[div[text()='%s']]");
+    private By editStageButton = By.xpath("//div[div[text()='%s']]/div[contains(@class,'actionButtons')]/*");
     private By stageNameField = By.xpath("//input[@type='text']");
     private By delayField = stageNameField;
     private By maxDealsToMoveField = By.xpath("//div[label[span[text()='Max deals to move']]]//input");
@@ -20,7 +17,7 @@ public class NavigationPage extends PageTools {
     private By saveButton = By.xpath("//span[text()='Save']");
     private By successNote = By.xpath("//div[text()='Saved Successfully']");
     private By errorNote = By.xpath("//div[text()='Error saving stage. Please try again.']");
-    private By deleteButton = By.xpath(stage + "/div[contains(@class,'actionButtons')]/*[local-name()='svg'][2]");
+    private By deleteButton = By.xpath("//div[div[text()='%s']]/div[contains(@class,'actionButtons')]/*[local-name()='svg'][2]");
     private By addStageButton = By.xpath("//span[text()='Add Stage']");
     private By emailCheckbox = By.xpath("//span[contains(@class, 'css') and text()='Email']");
     private By voicemailCheckbox = By.xpath("//span[contains(@class, 'css') and text()='Voicemail']");
@@ -60,12 +57,12 @@ public class NavigationPage extends PageTools {
 
     @Step("click edit button")
     public void clickEditCampaignButton(String campaignName){
-        clickDynamicLocator(editCampaignButton ,campaignName, editCampaignButtonString);
+        click(editCampaignButton, campaignName);
     }
 
     @Step("click edit stage button")
     public void clickEditStageButton(String stageName){
-        clickDynamicLocator(editStageButton, stageName, editStageButtonString);
+        click(editStageButton, stageName);
     }
 
     @Step("Type new stage name")
@@ -85,8 +82,7 @@ public class NavigationPage extends PageTools {
 
     @Step("Click delete button")
     public void clickDeleteButton(String stageName){
-        stage = formStageXpath(stage, stageName);
-        click(deleteButton);
+        click(deleteButton, stageName);
     }
 
     @Step("Click add stage button")

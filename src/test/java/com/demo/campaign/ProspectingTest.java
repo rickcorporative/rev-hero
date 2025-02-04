@@ -28,7 +28,7 @@ public class ProspectingTest extends BaseTest {
 
         Pages.campaignPage().clickStartButton();
 
-        Assert.assertTrue(Pages.campaignPage().checkIfCreated(), "Error! Prospecting campaign was not added...");
+        Assert.assertTrue(Pages.campaignPage().checkIfCreated(Constants.CAMPAIGN_NAME), "Error! Prospecting campaign was not added...");
 
     }
 }

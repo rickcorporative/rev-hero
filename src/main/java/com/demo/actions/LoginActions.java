@@ -1,7 +1,8 @@
 package com.demo.actions;
 
 import com.demo.pages.Pages;
-import com.demo.utils.Constants;
+import org.testng.Assert;
+
 
 public class LoginActions {
 
@@ -11,6 +12,8 @@ public class LoginActions {
         Pages.loginPage().typePassword(password);
 
         Pages.loginPage().clickLoginButton();
+
+        Assert.assertTrue(Pages.navigationPage().checkIfAuthorized(), "Error! Something is wrong. You were not logged in...");
     }
 
 }

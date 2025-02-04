@@ -6,7 +6,6 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 public class AgentsPage extends PageTools {
-    private String agent = "//tr[td[text()='%s'] and td[text()='%s']]";
     private By addNewAgentButton = By.xpath("//button[@title='Add New Agent']");
     private By firstNameField = By.xpath("//input[@name='first_name']");
     private By lastNameField = By.xpath("//input[@name='last_name']");
@@ -14,7 +13,7 @@ public class AgentsPage extends PageTools {
     private By successfulCreatedNote = By.xpath("//div[text()='Virtual Agent created successfully']");
     private By successfulUpdatedNote = By.xpath("//div[text()='Virtual Agent updated successfully']");
     private By successfulDeletedNote = By.xpath("//div[text()='Agent deleted successfully']");
-    private By settingsButton = By.xpath(agent + "//button[contains(@class, 'css')]");
+    private By settingsButton = By.xpath("//tr[td[text()='%s'] and td[text()='%s']]//span[contains(@class, 'anticon-setting')]");
     private By updateOption = By.xpath("//li[text()='Update']");
     private By deleteOption = By.xpath("//li[text()='Delete']");
     private By updateButton = By. xpath("//span[text()='Update']");
@@ -62,8 +61,7 @@ public class AgentsPage extends PageTools {
 
     @Step("Click settings button")
     public void clickSettingsButton(String firstName, String lastName){
-        agent = formAgentXpath(agent, firstName, lastName);
-        click(settingsButton);
+        click(settingsButton, firstName, lastName);
     }
 
     @Step("click update option")

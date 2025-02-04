@@ -28,7 +28,7 @@ public class OutcomeTest extends BaseTest {
 
         Pages.campaignPage().clickStartButton();
 
-        Assert.assertTrue(Pages.campaignPage().checkIfCreated(), "Error! Outcome campaign was not added...");
+        Assert.assertTrue(Pages.campaignPage().checkIfCreated(Constants.CAMPAIGN_NAME), "Error! Outcome campaign was not added...");
 
     }
 }

@@ -28,7 +28,7 @@ public class SwarmTest extends BaseTest {
 
         Pages.campaignPage().clickStartButton();
 
-        Assert.assertTrue(Pages.campaignPage().checkIfCreated(), "Error! SWARM campaign was not added...");
+        Assert.assertTrue(Pages.campaignPage().checkIfCreated(Constants.CAMPAIGN_NAME), "Error! SWARM campaign was not added...");
 
     }
 }

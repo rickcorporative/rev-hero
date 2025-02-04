@@ -10,6 +10,7 @@ import io.qameta.allure.Owner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static com.demo.utils.SelenideTools.sleep;
 
 
 @Epic("Test Epic")
@@ -19,6 +20,7 @@ public class DeleteTest extends BaseTest {
 
     @Test(description = "Delete Test")
     public void deleteTest(){
+
         Actions.loginActions().authorize(Constants.EMAIL, Constants.PASSWORD);
 
         Actions.mainActions().openVirtualAgentsPage();
