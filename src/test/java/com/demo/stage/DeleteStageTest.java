@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 @Epic("Test Epic")
 @Feature("Delete stage")
 @Owner("QA Yuliia Drapushko")
-public class DeleteTest extends BaseTest {
+public class DeleteStageTest extends BaseTest {
 
     @Test(description = "Delete stage test")
     public void deleteTest(){
