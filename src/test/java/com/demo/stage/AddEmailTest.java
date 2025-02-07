@@ -34,6 +34,8 @@ public class AddEmailTest extends BaseTest {
 
         Pages.navigationPage().clickNextButton();
 
+        Pages.navigationPage().createEmail("Email subject", "Email Body");
+
         Pages.navigationPage().clickSaveButton();
 
         Assert.assertTrue(!Pages.navigationPage().checkIfEmailStageCreated(), "Error! Email type stage was not added...");

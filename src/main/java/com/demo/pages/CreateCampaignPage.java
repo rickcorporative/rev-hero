@@ -1,7 +1,6 @@
 package com.demo.pages;
 
 import com.demo.core.base.PageTools;
-import com.demo.utils.Constants;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 

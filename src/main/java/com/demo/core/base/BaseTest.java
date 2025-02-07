@@ -14,7 +14,6 @@ public class BaseTest extends AllureLogger {
 
     @BeforeMethod(alwaysRun = true, description = "Opening web browser...")
     public void setUp() throws Exception {
-
         logInfo("Creating web driver configuration..."); //test
         SelenideConfig.createBrowserConfig(System.getProperty("selenide.browser", "chrome"));
         configLog(this.getClass().getSimpleName());

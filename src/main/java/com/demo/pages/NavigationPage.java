@@ -25,7 +25,8 @@ public class NavigationPage extends PageTools {
     private By sendPandadocSignatureCheckbox = By.xpath("//span[contains(@class, 'css') and text()='Send Pandadoc E-Signature']");
     private By sendLinkedInConnectionMessageCheckbox = By.xpath("//span[contains(@class, 'css') and text()='LinkedIn connection message']");
     private By sendLinkedInRegularMessageCheckbox = By.xpath("//span[contains(@class, 'css') and text()='LinkedIn regular message']");
-
+    private By emailSubjectField = By.xpath("//input[@name='emailSubject']");
+    private By emailBodyField = By.xpath("//div[contains(@class, 'ql-editor')]/p");
 
     @Step("Check if authorized")
     public boolean checkIfAuthorized(){
@@ -135,5 +136,11 @@ public class NavigationPage extends PageTools {
     @Step("Set max deals limit")
     public void setMaxDealsLimit(String value){
         type(value, maxDealsToMoveField);
+    }
+
+    @Step("Create an email")
+    public void createEmail(String subject, String body){
+        type(subject, emailSubjectField);
+        setValue(body, emailBodyField);
     }
 }

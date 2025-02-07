@@ -46,7 +46,7 @@ public class PageTools extends AllureLogger {
     }
 
     /**
-     * Should be
+     * Should bes
      */
     protected ElementsCollection shouldBe(CollectionCondition condition, By by, Object... args) {
         return $$(byLocator(by, args)).shouldBe(condition);
@@ -127,6 +127,14 @@ public class PageTools extends AllureLogger {
     protected void jsSetValue(String text, By by, Object... args) {
         logInfo(getPreviousMethodNameAsText() + " '" + text);
         Selenide.executeJavaScript("arguments[0].setAttribute('value', '" + text + "');", shouldBe(Condition.exist, by, args));
+    }
+
+    protected void setValue(String text, By by){
+        $(by).setValue(text);
+    }
+
+    protected void jsSetInnerHtml(String text, By by, Object... args) {
+        Selenide.executeJavaScript("arguments[0].innerHTML = "+ text, shouldBe(Condition.exist, by, args));
     }
 
     protected void jsRiseOnchange(By by, Object... args) {
