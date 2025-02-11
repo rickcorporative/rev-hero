@@ -96,11 +96,13 @@ public class NavigationPage extends PageTools {
     @Step("Type new name")
     public void typeStageName(String value){
         type(value, stageNameField);
+        sleep(5);
     }
 
     @Step("Mark email")
     public void markEmailCheckbox(){
         click(emailCheckbox);
+        sleep(5);
     }
 
     @Step("Mark voicemail")
@@ -142,5 +144,6 @@ public class NavigationPage extends PageTools {
     public void createEmail(String subject, String body){
         type(subject, emailSubjectField);
         setValue(body, emailBodyField);
+        sleep(5);
     }
 }

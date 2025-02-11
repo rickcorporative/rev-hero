@@ -20,6 +20,7 @@ public class AddEmailTest extends BaseTest {
 
     @Test(description = "add email type stage test")
     public void addEmailTest() {
+
         Actions.loginActions().authorize(Constants.EMAIL, Constants.PASSWORD);
 
         Pages.navigationPage().clickEditCampaignButton(Constants.CAMPAIGN_NAME);
@@ -39,7 +40,6 @@ public class AddEmailTest extends BaseTest {
         Pages.navigationPage().clickSaveButton();
 
         Assert.assertTrue(!Pages.navigationPage().checkIfEmailStageCreated(), "Error! Email type stage was not added...");
-
 
     }
 }
